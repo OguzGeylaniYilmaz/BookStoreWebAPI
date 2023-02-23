@@ -2,11 +2,11 @@
 
 namespace WebApi.Application.GenreOperations.Commands.CreateGenre
 {
-    public class CreateGenreCommandValidator: AbstractValidator<CreateGenreModel>
+    public class CreateGenreCommandValidator: AbstractValidator<CreateGenreCommand>
     {
         public CreateGenreCommandValidator()
         {
-            RuleFor(x=>x.Name).NotEmpty().MinimumLength(4);
+            RuleFor(command=>command.Model.Name).NotEmpty().MinimumLength(4);
         }
     }
 }

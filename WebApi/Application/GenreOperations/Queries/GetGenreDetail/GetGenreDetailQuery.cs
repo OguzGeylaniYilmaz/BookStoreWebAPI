@@ -14,15 +14,15 @@ namespace WebApi.Application.GenreOperations.Queries.GetGenreDetail
         public GetGenreDetailQuery(BookStoreDbContext dbContext, IMapper mapper)
         {
             _dbContext = dbContext;
+            _mapper = mapper;
         }
 
-        public GenreDetailViewModel Handle(int id)
+        public GenreDetailViewModel Handle()
         {
-            var genre = _dbContext.Genres.SingleOrDefault(x => x.IsActive && x.GenreId == id);
-            if (genre is null)
-            {
+            var genre = _dbContext.Genres.SingleOrDefault(x => x.IsActive && x.Id == GenreId);
+           if (genre is null)
                 throw new InvalidOperationException("Kitap türü bulunamadı");
-            }
+
             GenreDetailViewModel returnObj = _mapper.Map<GenreDetailViewModel>(genre);
             return returnObj;
         }

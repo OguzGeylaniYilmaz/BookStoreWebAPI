@@ -18,7 +18,7 @@ namespace WebApi.Application.GenreOperations.Queries.GetGenres
 
         public List<GenresViewModel> Handle()
         {
-            var genres = _dbContext.Genres.Where(x => x.IsActive).OrderBy(x => x.GenreId);
+            var genres = _dbContext.Genres.Where(x => x.IsActive).OrderBy(x => x.Id);
             List<GenresViewModel> returnObj = _mapper.Map<List<GenresViewModel>>(genres);
             return returnObj;
         }

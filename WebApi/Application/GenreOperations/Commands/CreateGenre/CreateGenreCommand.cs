@@ -26,7 +26,6 @@ namespace WebApi.Application.GenreOperations.Commands.CreateGenre
             genre.Name = Model.Name;
             _dbContext.Genres.Add(genre);
             _dbContext.SaveChanges();
-
         }
 
     }
